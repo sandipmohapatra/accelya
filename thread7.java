@@ -10,7 +10,7 @@ class First implements Runnable
 	}	}catch(Exception e){}	}}
 class thread7
 {    public static void main(String args[]) throws Exception
-{     a obj=new a();
+{     First obj=new First();
      Thread t1=new Thread(obj,"1st Bike");
      Thread t2=new Thread(obj,"2nd Bike");
      Thread t3=new Thread(obj,"3rd Bike");
