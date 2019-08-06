@@ -44,10 +44,28 @@ try
 {
 Class.forName("oracle.jdbc.driver.OracleDriver");
 Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","1234");
+if(e.equals("Insert"))
+{
 PreparedStatement ps=con.prepareStatement("insert into accelyastud values(?,?,?,?)");
 ps.setString(1,a);ps.setString(2,b);ps.setString(3,c);ps.setString(4,d);
 ps.execute();
 pw.print("row inserted");
+}
+else if(e.equals("Update"))
+{
+PreparedStatement ps=con.prepareStatement("update accelyastud set address=?,phoneno=?,email=? where name=?");
+ps.setString(1,b);ps.setString(2,c);ps.setString(3,d);ps.setString(4,a);
+ps.execute();
+pw.print("row update");
+}
+else
+{
+PreparedStatement ps=con.prepareStatement("delete from accelyastud where name=?");
+ps.setString(1,a);
+ps.execute();
+pw.print("row deleted");
+}
+
 }
 catch(Exception ae)
 {ae.printStackTrace();}
