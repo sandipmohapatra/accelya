@@ -1,0 +1,94 @@
+<html>
+     <head>     </head>
+      <body bgcolor="orange">
+          <h1>store the data into cookies</h1>
+          <form action="addcookies"   method=post>
+          <b> Enter the name of  cookie</b>
+          <input type="text" name="n1" size="6"><br><br>
+          <b> Enter the value of  cookie </b>
+          <input type="text" name="n2" size="6"><br><br>
+          <input type="submit" value="submit">
+          </form>    </body></html>
+-----------------------------------------------------------
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class addcookies extends HttpServlet
+ {
+ protected void service(HttpServletRequest request,HttpServletResponse response)
+             throws ServletException, IOException {
+          response.setContentType("text/html");
+          PrintWriter out = response.getWriter();
+           try {
+            String name1=request.getParameter("n1");
+            String value1=request.getParameter("n2");
+            Cookie cc=new Cookie(name1, value1);
+            response.addCookie(cc);
+            
+            out.println("<title>Servlet addcookies</title>");            
+           
+            out.println("<body bgcolor='blue'>");
+            out.println("Name of first cookie = ");
+            out.println(name1);
+            out.println("<br>value of first cookie = ");
+            out.println(value1);
+        
+        } finally {        
+               out.close();
+          }     }}
+-----------------------------------------------------
+<html>
+     <body bgcolor="orange">
+            <h1>To retrieve the data from cookies</h1>
+             <form action="getcookies">
+         
+              <B> CLICK THE BUTTON TO FIRE THE COOKIE</B><br>
+              <input type="submit" value="submit"/>
+             </form>
+    </body>
+</html>
+--------------------------------------------------------------
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class getcookies extends HttpServlet 
+{
+    public void service(HttpServletRequest request, HttpServletResponse response)
+             throws ServletException, IOException
+ {
+          response.setContentType("text/html");
+          PrintWriter out = response.getWriter();
+         try {   
+            out.println("<html>"); 
+             out.println("<head>");
+            out.println("<title>Servlet getcookies</title>");            
+            out.println("</head>");
+            out.println("<body bgcolor='CYAN'>");
+            Cookie cookies[]=request.getCookies();
+            for(int i=0;i<cookies.length;i++)
+            {
+                String name=cookies[i].getName();
+                String value=cookies[i].getValue();
+                out.println("<br> cookie name="+name+"<br>");
+                out.println("<br> cookie value="+value);
+            }
+            out.println("</body>");
+           out.println("</html>");
+                  } finally {               
+               out.close();       }     }}
+---------------------------------------------------------------
+
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
