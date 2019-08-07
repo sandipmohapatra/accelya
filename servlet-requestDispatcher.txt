@@ -1,0 +1,47 @@
+<html>
+<body>
+<form action="second" method=get>
+<center><h1>Login Page</h1></center><hr><br><br>
+Enter your name<input type=text name=t1 size=20><br>
+Enter your address<input type=text name=t2 size=20><br>
+Enter your email<input type=text name=t3 size=20><br>
+Enter your phone no<input type=text name=t4 size=20><br>
+<input type=submit value=submit><br>
+</form>
+</body>
+</html>
+---------------------------------------
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class second extends HttpServlet
+{
+	public void doGet(HttpServletRequest req,HttpServletResponse res)
+	{
+	try
+	{		res.setContentType("text/html");
+		PrintWriter pw=res.getWriter();
+		pw.println("second servlet");
+	RequestDispatcher rd=req.getRequestDispatcher("third");
+	rd.include(req, res);
+	}
+	catch(Exception ae) 
+	{		ae.printStackTrace();	}}}
+-----------------------------------------------
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class third extends HttpServlet
+{	public void service(HttpServletRequest req,HttpServletResponse res)
+	{	try	{
+		res.setContentType("text/html");
+		PrintWriter pw=res.getWriter();	
+		String a=req.getParameter("t1");
+		String b=req.getParameter("t2");
+		String c=req.getParameter("t3");
+		String d=req.getParameter("t4");
+		pw.println(a);pw.println(b);pw.println(c);pw.println(d);
+			}
+	catch(Exception ae)
+	{		ae.printStackTrace();	}	}}
+--------------------------------------------------------
