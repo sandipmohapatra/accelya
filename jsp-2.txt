@@ -126,7 +126,8 @@ out.println("enter only the number");
 out.println("<a href='hhh.html'>form</a>");
 
 %>
-
+-----------------------------------------------------------------
+https://way2java.com/jsp/jsp-exception-handling-errorpage-iserrorpage-exception/
 -----------------------------------------------------------
 include tag:
 --------------------------------------------------------------------
