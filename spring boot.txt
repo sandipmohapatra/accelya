@@ -1,0 +1,30 @@
+Spring Boot
+------------------------
+It is a Spring module which provides RAD (Rapid Application Development) feature to Spring framework.
+
+It is used to create stand alone spring based application that you can just run because it needs very little spring configuration.
+
+Spring Boot generate code and there is absolutely no requirement for XML configuration.
+
+Advantages of Spring Boot
+--------------------------------------------
+Create stand-alone Spring applications that can be started using java -jar.
+Embed Tomcat, Jetty or Undertow directly. You don't need to deploy WAR files.
+
+It provides opinionated 'starter' POMs to simplify your Maven configuration.
+
+It automatically configure Spring whenever possible.
+-----------------------------------------------------------------------------------------------------------------
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>5.1.9.RELEASE</version>
+</dependency>
+
+
+
+
+
+
+
+
